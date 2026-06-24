@@ -2,7 +2,7 @@ pkgbase = linux-warmshower
 	pkgdesc = Linux EEVDF + LTO + AutoFDO + Propeller WarmShower Sauce Kernel with upstream patches and improvements.
 	pkgver = 7.1.1
 	pkgrel = 2
-	url = https://github.com/YOUR_ORG/linux-warmshower
+	url = https://github.com/Rawknee-69/linux-warmshower
 	arch = x86_64
 	license = GPL-2.0-only
 	makedepends = bc
@@ -61,7 +61,7 @@ pkgname = linux-warmshower
 	provides = ADIOS-MODULE
 	provides = linux-warmshower-lto=7.1.1-2
 	replaces = linux-warmshower-lto
-	conflicts = linux-cachyos
+	conflicts = linux-warmshower-gcc
 
 pkgname = linux-warmshower-headers
 	pkgdesc = Headers and scripts for building modules for the Linux EEVDF + LTO + AutoFDO + Propeller WarmShower Sauce Kernel. kernel

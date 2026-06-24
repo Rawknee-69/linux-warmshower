@@ -1,5 +1,5 @@
 #!/bin/bash
-# tag-release.sh - Create signed WarmShower OS kernel tags in YOUR_ORG/linux
+# tag-release.sh - Create signed WarmShower OS kernel tags in Rawknee-69/linux-warmshower
 # Usage: ./tag-release.sh <kernel-version> [pkgrel]
 # Example: ./tag-release.sh 6.19.3 1
 
@@ -36,7 +36,7 @@ Notes:
   - Requires a GPG signing key configured via 'git config user.signingkey'
     or signing enabled globally with 'git config tag.gpgSign true'
   - The release tarball is signed with the same GPG key (produces .tar.gz.asc)
-  - Run this script from a checkout of github.com/YOUR_ORG/linux
+  - Run this script from a checkout of github.com/Rawknee-69/linux-warmshower
   - Topic branches must be merged (not squashed) into the release branch.
     The changelog is built from first-parent merge commits on top of the
     upstream base commit ("Linux X.Y.Z").
@@ -264,8 +264,8 @@ if [[ "$push_confirm" == [yY] ]]; then
     rm -f "$TARBALL" "${TARBALL}.asc" "$NOTES_FILE"
     echo ""
     echo "Release created with uploaded tarball and GPG signature."
-    echo "Download URL: https://github.com/CachyOS/linux/releases/download/${TAG}/${TARBALL}"
-    echo "Signature:    https://github.com/CachyOS/linux/releases/download/${TAG}/${TARBALL}.asc"
+    echo "Download URL: https://github.com/Rawknee-69/linux-warmshower/releases/download/${TAG}/${TARBALL}"
+    echo "Signature:    https://github.com/Rawknee-69/linux-warmshower/releases/download/${TAG}/${TARBALL}.asc"
 else
     echo "Push with: git push origin $TAG"
 fi

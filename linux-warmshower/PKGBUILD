@@ -186,9 +186,7 @@ pkgdesc='Linux EEVDF + LTO + AutoFDO + Propeller WarmShower Sauce Kernel with up
 _kernver="$pkgver-$pkgrel"
 _kernuname="${pkgver}-${_pkgsuffix}"
 arch=('x86_64')
-url="https://github.com/YOUR_ORG/linux-warmshower"
-# NOTE: source tarball is fetched from upstream linux releases (replace with your own fork later).
-# Update this to your own fork's release URL once you set up your release pipeline.
+url="https://github.com/Rawknee-69/linux-warmshower"
 license=('GPL-2.0-only')
 options=('!strip' '!debug' '!lto')
 makedepends=(
@@ -600,7 +598,7 @@ _package() {
         provides+=(linux-warmshower-lto=$_kernver)
         replaces=(linux-warmshower-lto)
     fi
-    conflicts=("linux-cachyos")
+    conflicts=("linux-warmshower-gcc")
 
     cd "$_srcname"
 
