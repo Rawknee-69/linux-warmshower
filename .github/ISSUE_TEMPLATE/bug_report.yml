@@ -2,7 +2,7 @@ name: Bug Report
 description: Report a bug or regression in a WarmShower OS kernel
 title: "[BUG] "
 labels: ["bug"]
-assignees: [ptr1337, sir_lucjan, 1Naim]
+assignees: [rem]
 body:
   - type: checkboxes
     id: preflight
