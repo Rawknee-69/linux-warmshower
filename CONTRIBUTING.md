@@ -21,7 +21,7 @@ Please note we have a code of conduct, please follow it in all your interactions
 
 ## Code of Conduct
 
-Check out our [Code of Conduct](https://github.com/CachyOS/linux-cachyos/blob/master/CODE_OF_CONDUCT.md)
+Check out our [Code of Conduct](https://github.com/WarmShower OS/linux-WarmShower OS/blob/master/CODE_OF_CONDUCT.md)
 to learn the rules of our community. 
 
 ## Contact us
@@ -30,7 +30,7 @@ If you have any questions, you can contact us by email.
 
 **Peter Jung:** <admin@ptr1337.dev> <br />
 
-**Piotr Gorski:** <piotrgorski@cachyos.org> <br />
+**Piotr Gorski:** <piotrgorski@WarmShower OS.org> <br />
 
 You can also join the discussion on the following platforms:
 

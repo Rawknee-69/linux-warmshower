@@ -1,5 +1,5 @@
 #!/bin/bash
-# tag-release.sh - Create signed CachyOS kernel tags in cachyos/linux
+# tag-release.sh - Create signed WarmShower OS kernel tags in YOUR_ORG/linux
 # Usage: ./tag-release.sh <kernel-version> [pkgrel]
 # Example: ./tag-release.sh 6.19.3 1
 
@@ -9,18 +9,18 @@ usage() {
     cat <<EOF
 Usage: $(basename "$0") <kernel-version> [pkgrel]
 
-Create a signed CachyOS release tag on the current branch.
+Create a signed WarmShower OS release tag on the current branch.
 Tags the HEAD commit of whatever branch is currently checked out.
 
-Tag scheme: cachyos-<version>-<pkgrel>
+Tag scheme: warmshower-<version>-<pkgrel>
 
   Kernel variant               Tag example
   ─────────────────────────────────────────────
-  Stable initial               cachyos-6.19.0-1
-  Stable point release         cachyos-6.19.3-1
-  Stable re-spin               cachyos-6.19.3-2
-  LTS                          cachyos-6.18.9-1
-  RC                           cachyos-6.19-rc8-1
+  Stable initial               warmshower-6.19.0-1
+  Stable point release         warmshower-6.19.3-1
+  Stable re-spin               warmshower-6.19.3-2
+  LTS                          warmshower-6.18.9-1
+  RC                           warmshower-6.19-rc8-1
 
 Arguments:
   kernel-version   Kernel version (required)
@@ -36,7 +36,7 @@ Notes:
   - Requires a GPG signing key configured via 'git config user.signingkey'
     or signing enabled globally with 'git config tag.gpgSign true'
   - The release tarball is signed with the same GPG key (produces .tar.gz.asc)
-  - Run this script from a checkout of github.com/CachyOS/linux
+  - Run this script from a checkout of github.com/YOUR_ORG/linux
   - Topic branches must be merged (not squashed) into the release branch.
     The changelog is built from first-parent merge commits on top of the
     upstream base commit ("Linux X.Y.Z").
@@ -71,7 +71,7 @@ if ! [[ "$PKGREL" =~ ^[0-9]+$ ]]; then
     exit 1
 fi
 
-TAG="cachyos-${VERSION}-${PKGREL}"
+TAG="warmshower-${VERSION}-${PKGREL}"
 
 # Extract major.minor ("6.19" from "6.19.3" or "6.19-rc8")
 [[ "$VERSION" =~ ^([0-9]+\.[0-9]+) ]]
@@ -100,16 +100,16 @@ find_upstream_commit() {
     printf '%s' "$hash"
 }
 
-# Most recent cachyos-<major.minor>-* tag. Works across stable rebases
+# Most recent warmshower-<major.minor>-* tag. Works across stable rebases
 # because it sorts by version name, not by ancestry.
 find_prev_tag() {
     local major_minor="$1"
-    git tag -l "cachyos-${major_minor}*" --sort=-v:refname 2>/dev/null | head -n1
+    git tag -l "warmshower-${major_minor}*" --sort=-v:refname 2>/dev/null | head -n1
 }
 
-# Extract the kernel version out of a "cachyos-<ver>-<pkgrel>" tag.
+# Extract the kernel version out of a "warmshower-<ver>-<pkgrel>" tag.
 tag_to_version() {
-    sed -E 's/^cachyos-(.+)-[0-9]+$/\1/' <<< "$1"
+    sed -E 's/^warmshower-(.+)-[0-9]+$/\1/' <<< "$1"
 }
 
 # Enumerate first-parent merge commits of topic branches on top of <upstream>
@@ -144,7 +144,7 @@ generate_changelog() {
     local upstream_hash
     upstream_hash=$(find_upstream_commit "$version" "HEAD")
 
-    echo "## CachyOS Linux ${version}-${pkgrel}"
+    echo "## WarmShower OS Linux ${version}-${pkgrel}"
     echo ""
     echo "Based on Linux ${version}"
     [[ -n "$prev_tag" ]] && echo "Previous release: \`${prev_tag}\`"
@@ -257,7 +257,7 @@ if [[ "$push_confirm" == [yY] ]]; then
     REPO_SLUG=$(echo "$REPO_URL" | sed -E 's#(https://github\.com/|git@github\.com:)##;s#\.git$##')
     gh release create "$TAG" "$TARBALL" "${TARBALL}.asc" \
         --repo "$REPO_SLUG" \
-        --title "CachyOS Linux ${VERSION}-${PKGREL}" \
+        --title "WarmShower OS Linux ${VERSION}-${PKGREL}" \
         --notes-file "$NOTES_FILE" \
         --verify-tag
 

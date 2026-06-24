@@ -23,7 +23,7 @@ do
 done
 
 echo "move kernels to the repo"
-mv */*-x86_64_v4.pkg.tar.zst* /home/ptr1337/.docker/build/nginx/www/repo/x86_64_v4/cachyos-znver4/
-RUST_LOG=trace repo-manage-util -p cachyos-znver4 update
+mv */*-x86_64_v4.pkg.tar.zst* /home/ptr1337/.docker/build/nginx/www/repo/x86_64_v4/warmshower-znver4/
+RUST_LOG=trace repo-manage-util -p warmshower-znver4 update
 ## Ensure that repo-add/repoctl catches all new packages
-RUST_LOG=trace repo-manage-util -p cachyos-znver4 update
+RUST_LOG=trace repo-manage-util -p warmshower-znver4 update

@@ -39,10 +39,10 @@ do
 done
 
 echo "move kernels to the repo"
-mv */*-x86_64_v3.pkg.tar.zst* /home/ptr1337/.docker/build/nginx/www/repo/x86_64_v3/cachyos-v3/
-RUST_LOG=trace repo-manage-util -p cachyos-v3 update
+mv */*-x86_64_v3.pkg.tar.zst* /home/ptr1337/.docker/build/nginx/www/repo/x86_64_v3/warmshower-v3/
+RUST_LOG=trace repo-manage-util -p warmshower-v3 update
 ## Ensure that repo-add/repoctl catches all new packages
-RUST_LOG=trace repo-manage-util -p cachyos-v3 update
+RUST_LOG=trace repo-manage-util -p warmshower-v3 update
 
 ## GCC v4 Kernel
 find . -name "PKGBUILD" | xargs -I {} sed -i "s/_use_llvm_lto:=thin/_use_llvm_lto:=none/" {}
@@ -74,7 +74,7 @@ do
 done
 
 echo "move kernels to the repo"
-mv */*-x86_64_v4.pkg.tar.zst* /home/ptr1337/.docker/build/nginx/www/repo/x86_64_v4/cachyos-v4/
-RUST_LOG=trace repo-manage-util -p cachyos-v4 update
+mv */*-x86_64_v4.pkg.tar.zst* /home/ptr1337/.docker/build/nginx/www/repo/x86_64_v4/warmshower-v4/
+RUST_LOG=trace repo-manage-util -p warmshower-v4 update
 ## Ensure that repo-add/repoctl catches all new packages
-RUST_LOG=trace repo-manage-util -p cachyos-v4 update
+RUST_LOG=trace repo-manage-util -p warmshower-v4 update

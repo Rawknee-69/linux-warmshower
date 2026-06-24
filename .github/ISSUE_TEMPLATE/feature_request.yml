@@ -1,5 +1,5 @@
 name: Feature Request / Patch Submission
-description: Suggest a new patch, config change, or feature for a CachyOS kernel variant
+description: Suggest a new patch, config change, or feature for a WarmShower OS kernel variant
 title: "[FEATURE] "
 labels: ["enhancement"]
 assignees: [ptr1337, sir_lucjan, 1Naim]
@@ -11,7 +11,7 @@ body:
       options:
         - label: I have searched existing issues/PRs and this has not been requested before.
           required: true
-        - label: I have read the [Contributing Guidelines](https://github.com/CachyOS/linux-cachyos/blob/master/CONTRIBUTING.md).
+        - label: I have read the [Contributing Guidelines](https://github.com/WarmShower OS/linux-WarmShower OS/blob/master/CONTRIBUTING.md).
           required: true
 
   - type: checkboxes

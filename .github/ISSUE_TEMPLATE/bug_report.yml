@@ -1,5 +1,5 @@
 name: Bug Report
-description: Report a bug or regression in a CachyOS kernel
+description: Report a bug or regression in a WarmShower OS kernel
 title: "[BUG] "
 labels: ["bug"]
 assignees: [ptr1337, sir_lucjan, 1Naim]
@@ -12,9 +12,9 @@ body:
       options:
         - label: I have searched existing issues and this is not a duplicate.
           required: true
-        - label: I have read the [Contributing Guidelines](https://github.com/CachyOS/linux-cachyos/blob/master/CONTRIBUTING.md).
+        - label: I have read the [Contributing Guidelines](https://github.com/WarmShower OS/linux-WarmShower OS/blob/master/CONTRIBUTING.md).
           required: true
-        - label: I have verified the issue is reproducible with the latest available CachyOS kernel.
+        - label: I have verified the issue is reproducible with the latest available WarmShower OS kernel.
           required: true
         - label: I have tried to reproduce the issue on Arch Linux's `linux` kernel.
           required: true
@@ -23,10 +23,10 @@ body:
     id: upstream_check
     attributes:
       label: Upstream / vanilla kernel check
-      description: Have you tested with an unmodified upstream kernel to determine if this is CachyOS-specific?
+      description: Have you tested with an unmodified upstream kernel to determine if this is WarmShower OS-specific?
       options:
         - I have not tested with a vanilla/upstream kernel
-        - I tested with a vanilla/upstream kernel and the issue does NOT reproduce there (CachyOS-specific bug)
+        - I tested with a vanilla/upstream kernel and the issue does NOT reproduce there (WarmShower OS-specific bug)
         - I tested with a vanilla/upstream kernel and the issue ALSO reproduces there (upstream bug — please report upstream)
     validations:
       required: true
@@ -35,19 +35,19 @@ body:
     id: kernel_variant
     attributes:
       label: Kernel variant
-      description: Which CachyOS kernel package are you using?
+      description: Which WarmShower OS kernel package are you using?
       options:
-        - linux-cachyos (EEVDF, Clang)
-        - linux-cachyos-bore (BORE, GCC)
-        - linux-cachyos-eevdf (EEVDF, GCC)
-        - linux-cachyos-bmq (BMQ, GCC)
-        - linux-cachyos-hardened
-        - linux-cachyos-lts
-        - linux-cachyos-rt-bore
-        - linux-cachyos-server
-        - linux-cachyos-deckify
-        - linux-cachyos-rc
-        - linux-cachyos-gcc (GCC)
+        - linux-WarmShower OS (EEVDF, Clang)
+        - linux-WarmShower OS-bore (BORE, GCC)
+        - linux-WarmShower OS-eevdf (EEVDF, GCC)
+        - linux-WarmShower OS-bmq (BMQ, GCC)
+        - linux-WarmShower OS-hardened
+        - linux-WarmShower OS-lts
+        - linux-WarmShower OS-rt-bore
+        - linux-WarmShower OS-server
+        - linux-WarmShower OS-deckify
+        - linux-WarmShower OS-rc
+        - linux-WarmShower OS-gcc (GCC)
         - Other (specify in description)
     validations:
       required: true
@@ -55,9 +55,9 @@ body:
   - type: textarea
     id: bugreport
     attributes:
-      label: System information (cachyos-bugreport.sh)
+      label: System information (WarmShower OS-bugreport.sh)
       description: |
-        Please run `cachyos-bugreport.sh` and paste the output here.
+        Please run `WarmShower OS-bugreport.sh` and paste the output here.
         If you are unable to run the script, provide the information manually below.
       render: text
     validations:
@@ -66,9 +66,9 @@ body:
   - type: textarea
     id: manual_sysinfo
     attributes:
-      label: Manual system information (if cachyos-bugreport.sh is unavailable)
+      label: Manual system information (if WarmShower OS-bugreport.sh is unavailable)
       description: |
-        If you cannot run `cachyos-bugreport.sh`, please provide manually:
+        If you cannot run `WarmShower OS-bugreport.sh`, please provide manually:
         - Kernel version (`uname -r`)
         - CPU model
         - GPU model & driver (if relevant)

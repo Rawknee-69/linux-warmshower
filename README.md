@@ -1,8 +1,8 @@
 <div align="center">
   <img src="https://github.com/CachyOS/calamares-config/blob/grub-3.2/etc/calamares/branding/cachyos/logo.png" width="64" alt="CachyOS logo"></img>
   <br/>
-  <h1 align="center">CachyOS Linux Kernels</h1>
-  <p align="center">Enhanced Linux kernels with improved performance, multiple CPU schedulers, and advanced optimizations.</p>
+  <h1 align="center">WarmShower OS Linux Kernels</h1>
+  <p align="center">Enhanced Linux kernels with improved performance, multiple CPU schedulers, and advanced optimizations. Forked from CachyOS (upstream).</p>
 </div>
 
 ## Table of Contents
@@ -15,7 +15,7 @@
   - [Networking](#networking)
   - [Filesystem & Memory](#filesystem--memory)
   - [Additional Features](#additional-features)
-- [CachyOS Repositories](#cachyos-repositories)
+- [WarmShower OS Repositories](#warmshower-os-repositories)
   - [Quick Installation](#quick-installation)
   - [Manual Installation](#manual-installation)
   - [CPU Compatibility Check](#cpu-compatibility-check)
@@ -32,7 +32,7 @@ CachyOS provides a collection of enhanced Linux kernels designed for improved pe
 Our kernels feature multiple CPU schedulers, advanced compiler optimizations, and carefully selected patches to deliver better responsiveness and throughput.
 
 > [!NOTE]
-> All CachyOS kernels are available in multiple architecture optimizations: `x86-64`, `x86-64-v3`, `x86-64-v4`, and `znver4`.
+> All WarmShower OS kernels are available in multiple architecture optimizations: `x86-64`, `x86-64-v3`, `x86-64-v4`, and `znver4`.
 
 ## Kernel Variants & Schedulers
 
@@ -41,38 +41,38 @@ Each scheduler is optimized for different use cases. We recommend testing each o
 ### Available Schedulers
 | Scheduler | Full Name | Package(s) | Best for... | Developer |
 | :--- | :--- | :--- | :--- | :--- |
-| **[BORE](https://github.com/firelzrd/bore-scheduler)** | **B**urst-**O**riented **R**esponse **E**nhancer | `linux-cachyos-bore`, `linux-cachyos-deckify`, `linux-cachyos-hardened`, `linux-cachyos-rt-bore` | Interactive workloads & gaming | [firelzrd](https://github.com/firelzrd) |
-| **[EEVDF](https://lwn.net/Articles/927530/)** | **E**arliest **E**ligible **V**irtual **D**eadline **F**irst | `linux-cachyos`, `linux-cachyos-eevdf`, `linux-cachyos-lts`, `linux-cachyos-server` | General-purpose computing | Peter Zijlstra |
-| **[BMQ](https://gitlab.com/alfredchen/linux-prjc)** | **B**it**M**ap **Q**ueue CPU Scheduler | `linux-cachyos-bmq` | Throughput-oriented workloads | [Alfred Chen](https://gitlab.com/alfredchen) |
+| **[BORE](https://github.com/firelzrd/bore-scheduler)** | **B**urst-**O**riented **R**esponse **E**nhancer | `linux-warmshower-bore`, `linux-warmshower-deckify`, `linux-warmshower-hardened`, `linux-warmshower-rt-bore` | Interactive workloads & gaming | [firelzrd](https://github.com/firelzrd) |
+| **[EEVDF](https://lwn.net/Articles/927530/)** | **E**arliest **E**ligible **V**irtual **D**eadline **F**irst | `linux-warmshower`, `linux-warmshower-eevdf`, `linux-warmshower-lts`, `linux-warmshower-server` | General-purpose computing | Peter Zijlstra |
+| **[BMQ](https://gitlab.com/alfredchen/linux-prjc)** | **B**it**M**ap **Q**ueue CPU Scheduler | `linux-warmshower-bmq` | Throughput-oriented workloads | [Alfred Chen](https://gitlab.com/alfredchen) |
 
 ### Specialized Variants
 
-- **`linux-cachyos`** - Default kernel: EEVDF scheduler with Clang Thin LTO and AutoFDO
-- **`linux-cachyos-rc`** - Release candidate kernel tracking the next upstream version
-- **`linux-cachyos-hardened`** - Security-focused kernel with hardening patches and the BORE scheduler
-- **`linux-cachyos-lts`** - Long Term Support version (currently 6.18) with EEVDF and Cachy Sauce
-- **`linux-cachyos-rt-bore`** - Real-time kernel with BORE scheduler integration
-- **`linux-cachyos-server`** - Server-optimized EEVDF configuration with lazy preemption
-- **`linux-cachyos-deckify`** - Handheld gaming variant with BORE scheduler, Steam Deck support, and MSI Claw driver
+- **`linux-warmshower`** - Default kernel: EEVDF scheduler with Clang Thin LTO and AutoFDO
+- **`linux-warmshower-rc`** - Release candidate kernel tracking the next upstream version
+- **`linux-warmshower-hardened`** - Security-focused kernel with hardening patches and the BORE scheduler
+- **`linux-warmshower-lts`** - Long Term Support version (currently 6.18) with EEVDF and Cachy Sauce
+- **`linux-warmshower-rt-bore`** - Real-time kernel with BORE scheduler integration
+- **`linux-warmshower-server`** - Server-optimized EEVDF configuration with lazy preemption
+- **`linux-warmshower-deckify`** - Handheld gaming variant with BORE scheduler, Steam Deck support, and MSI Claw driver
 
 ### Compiler Variants
 
-- **`linux-cachyos`** - Default optimized build using Clang Thin LTO with AutoFDO + Propeller profile-guided optimizations
-- **Scheduler-specific packages** (`linux-cachyos-bore`, `linux-cachyos-bmq`, `linux-cachyos-eevdf`, etc.) - GCC-compiled builds without LTO, focused on scheduler choice over compiler optimizations
+- **`linux-warmshower`** - Default optimized build using Clang Thin LTO with AutoFDO + Propeller profile-guided optimizations
+- **Scheduler-specific packages** (`linux-warmshower-bore`, `linux-warmshower-bmq`, `linux-warmshower-eevdf`, etc.) - GCC-compiled builds without LTO, focused on scheduler choice over compiler optimizations
 
 > [!TIP]
-> For detailed explanations of each kernel variant, visit our [Kernel Wiki](https://wiki.cachyos.org/features/kernel).
+> For detailed explanations of each kernel variant, visit our [upstream Kernel Wiki](https://wiki.cachyos.org/features/kernel).
 
 ## Features
 
-The CachyOS kernel fork merges topic branches into each release. The current **Linux 7.1** base integrates fifteen topic branches (`amd-isp4`, `bbr3`, `cachy`, `cgroup-vram`, `drm-fair`, `fixes`, `hdmi`, `lenovo-wmi`, `mglru`, `preempt-ipi`, `sched-cluster`, `snd-codecs`, `t2`, `vesa-dsc-bpp`, and `vmalloc-free`) on top of upstream stable.
+The WarmShower OS kernel fork merges topic branches into each release. The current **Linux 7.1** base integrates fifteen topic branches (`amd-isp4`, `bbr3`, `cachy`, `cgroup-vram`, `drm-fair`, `fixes`, `hdmi`, `lenovo-wmi`, `mglru`, `preempt-ipi`, `sched-cluster`, `snd-codecs`, `t2`, `vesa-dsc-bpp`, and `vmalloc-free`) on top of upstream stable.
 
 ### Performance Optimizations
 
 - **Advanced Compilation**: Highly customizable PKGBUILD with support for both GCC and Clang compilers
-- **Link Time Optimization (LTO)**: Clang Thin LTO (v12) enabled by default on the main `linux-cachyos` package
+- **Link Time Optimization (LTO)**: Clang Thin LTO (v12) enabled by default on the main `linux-warmshower` package
 - **Distributed ThinLTO**: Support for distributed Clang ThinLTO builds to speed up kernel compilation
-- **Profile-Guided Optimization**: AutoFDO + Propeller profiling on the default kernel for optimal code generation ([Learn more](https://cachyos.org/blog/2411-kernel-autofdo/))
+- **Profile-Guided Optimization**: AutoFDO + Propeller profiling on the default kernel for optimal code generation ([Learn more - upstream blog](https://cachyos.org/blog/2411-kernel-autofdo/))
 - **Kernel Control Flow Integrity (kCFI)**: Available when using LLVM for enhanced security
 - **Timer Frequency Options**: Configurable between 100Hz, 250Hz, 300Hz, 500Hz, 600Hz, 750Hz, and 1000Hz (default: 1000Hz)
 - **Architecture Optimizations**: Support for x86-64-v3, x86-64-v4, and AMD Zen4 specific builds
@@ -86,7 +86,7 @@ The CachyOS kernel fork merges topic branches into each release. The current **L
 - **[POC Selector](https://github.com/masahitoS/scx_cake) v2.6.2**: Piece-Of-Cake fast idle CPU selector inspired by scx_cake, reducing wakeup latency
 - **Cluster-Aware Scheduling**: Improved load balancing for CPU clusters, including balancing between CPUs of identical capacity on hybrid architectures
 - **Preempt-IPI Optimizations**: Lower-latency SMP/IPI paths with preemption re-enabled before TLB flushes and streamlined `smp_call_function()` handling
-- **CachyOS Sauce**: Custom `CONFIG_CACHY` configuration with scheduler and system tweaks
+- **WarmShower OS Sauce**: Custom `CONFIG_CACHY` configuration with scheduler and system tweaks
 - **AMD P-State Enhancements**: Preferred Core support and latest amd-pstate improvements from linux-next
 - **Real-Time Support**: RT kernel builds available with BORE scheduler integration
 - **Low-Latency Optimizations**: Patches for improved responsiveness and reduced jitter
@@ -132,11 +132,11 @@ The CachyOS kernel fork merges topic branches into each release. The current **L
 - **Upstream Integration**: Cherry-picked patches from Clear Linux and linux-next
 
 > [!NOTE]
-> For comprehensive details about each kernel variant and their specific optimizations, visit our [Kernel Documentation](https://wiki.cachyos.org/features/kernel).
+> For comprehensive details about each kernel variant and their specific optimizations, visit our [upstream Kernel Documentation](https://wiki.cachyos.org/features/kernel).
 
-## CachyOS Repositories
+## WarmShower OS Repositories
 
-Our [repositories](https://mirror.cachyos.org/) contain optimized Arch Linux and CachyOS packages rebuilt with performance, stability, and security enhancements.
+Our repositories contain optimized Arch Linux and WarmShower OS packages rebuilt with performance, stability, and security enhancements.
 
 ### Available Repository Tiers
 
@@ -155,11 +155,11 @@ Our installation script automatically detects your CPU and configures the optima
 
 ```bash
 # Download and extract the installer
-curl -O https://mirror.cachyos.org/cachyos-repo.tar.xz
-tar xvf cachyos-repo.tar.xz && cd cachyos-repo
+curl -O https://warmshower.example.org/repo/warmshower-repo.tar.xz
+tar xvf warmshower-repo.tar.xz && cd warmshower-repo
 
 # Run the automated installer
-sudo ./cachyos-repo.sh
+sudo ./warmshower-repo.sh
 ```
 
 **What the script does:**
@@ -168,11 +168,11 @@ sudo ./cachyos-repo.sh
 - Backs up your existing `pacman.conf`
 - Sets up GPG keys and mirrors
 
-For more information, visit our [GitHub](https://github.com/cachyos) or join our [Discord](https://discord.gg/cachyos-862292009423470592) community.
+For more information, visit our GitHub or join our [Discord - upstream community](https://discord.gg/cachyos-862292009423470592) community.
 
 ### Manual Installation
 
-**Step 1: Add CachyOS Signing Keys**
+**Step 1: Add WarmShower OS Signing Keys**
 
 ```bash
 sudo pacman-key --recv-keys F3B607488DB35A47 --keyserver keyserver.ubuntu.com
@@ -183,21 +183,21 @@ sudo pacman-key --lsign-key F3B607488DB35A47
 
 ```bash
 sudo pacman -U \
-    'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-keyring-20240331-1-any.pkg.tar.zst' \
-    'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-mirrorlist-27-1-any.pkg.tar.zst' \
-    'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-v3-mirrorlist-27-1-any.pkg.tar.zst' \
-    'https://mirror.cachyos.org/repo/x86_64/cachyos/cachyos-v4-mirrorlist-27-1-any.pkg.tar.zst' \
+    'https://mirror.cachyos.org/repo/x86_64/cachyos/warmshower-keyring-20240331-1-any.pkg.tar.zst' \
+    'https://mirror.cachyos.org/repo/x86_64/cachyos/warmshower-mirrorlist-27-1-any.pkg.tar.zst' \
+    'https://mirror.cachyos.org/repo/x86_64/cachyos/warmshower-v3-mirrorlist-27-1-any.pkg.tar.zst' \
+    'https://mirror.cachyos.org/repo/x86_64/cachyos/warmshower-v4-mirrorlist-27-1-any.pkg.tar.zst' \
     'https://mirror.cachyos.org/repo/x86_64/cachyos/pacman-7.1.0.r9.g54d9411-4-x86_64.pkg.tar.zst'
 ```
 
 > [!CAUTION]
-> **About CachyOS Pacman**: This installs a forked version of pacman with CachyOS-specific features like `INSTALLED_FROM` tracking and automatic architecture detection. While this provides enhanced functionality, it may cause compatibility warnings with standard Arch Linux workflows.
+> **About WarmShower OS Pacman**: This installs a forked version of pacman with extended features like `INSTALLED_FROM` tracking and automatic architecture detection. While this provides enhanced functionality, it may cause compatibility warnings with standard Arch Linux workflows.
 >
-> **Alternative**: If you prefer to avoid the custom pacman, skip the `cachyos` repository and only use the optimized package repositories (`cachyos-v3`, `cachyos-v4`, `cachyos-extra`, etc.).
+> **Alternative**: If you prefer to avoid the custom pacman, skip the `warmshower` repository.
 
 **Rollback Instructions**
 
-If you need to revert to standard Arch repositories after using CachyOS pacman:
+If you need to revert to standard Arch repositories after using WarmShower OS pacman:
 
 ```bash
 sudo find /var/lib/pacman/local/ -type f -name "desc" -exec sed -i '/^%INSTALLED_DB%$/,+2d' {} \;
@@ -246,48 +246,48 @@ sudo nano /etc/pacman.conf
 
 **For x86-64 (Basic) Support:**
 ```ini
-# CachyOS repositories
-[cachyos]
-Include = /etc/pacman.d/cachyos-mirrorlist
+# WarmShower OS repositories
+[warmshower]
+Include = /etc/pacman.d/warmshower-mirrorlist
 ```
 
 **For x86-64-v3 Support:**
 ```ini
-# CachyOS repositories (add in this order)
-[cachyos-v3]
-Include = /etc/pacman.d/cachyos-v3-mirrorlist
-[cachyos-core-v3]
-Include = /etc/pacman.d/cachyos-v3-mirrorlist
-[cachyos-extra-v3]
-Include = /etc/pacman.d/cachyos-v3-mirrorlist
-[cachyos]
-Include = /etc/pacman.d/cachyos-mirrorlist
+# WarmShower OS repositories (add in this order)
+[warmshower-v3]
+Include = /etc/pacman.d/warmshower-v3-mirrorlist
+[warmshower-core-v3]
+Include = /etc/pacman.d/warmshower-v3-mirrorlist
+[warmshower-extra-v3]
+Include = /etc/pacman.d/warmshower-v3-mirrorlist
+[warmshower]
+Include = /etc/pacman.d/warmshower-mirrorlist
 ```
 
 **For x86-64-v4 Support:**
 ```ini
-# CachyOS repositories (add in this order)
-[cachyos-v4]
-Include = /etc/pacman.d/cachyos-v4-mirrorlist
-[cachyos-core-v4]
-Include = /etc/pacman.d/cachyos-v4-mirrorlist
-[cachyos-extra-v4]
-Include = /etc/pacman.d/cachyos-v4-mirrorlist
-[cachyos]
-Include = /etc/pacman.d/cachyos-mirrorlist
+# WarmShower OS repositories (add in this order)
+[warmshower-v4]
+Include = /etc/pacman.d/warmshower-v4-mirrorlist
+[warmshower-core-v4]
+Include = /etc/pacman.d/warmshower-v4-mirrorlist
+[warmshower-extra-v4]
+Include = /etc/pacman.d/warmshower-v4-mirrorlist
+[warmshower]
+Include = /etc/pacman.d/warmshower-mirrorlist
 ```
 
 **For AMD Zen4 CPUs:**
 ```ini
-# CachyOS repositories (Zen4 optimized)
-[cachyos-znver4]
-Include = /etc/pacman.d/cachyos-v4-mirrorlist
-[cachyos-core-znver4]
-Include = /etc/pacman.d/cachyos-v4-mirrorlist
-[cachyos-extra-znver4]
-Include = /etc/pacman.d/cachyos-v4-mirrorlist
-[cachyos]
-Include = /etc/pacman.d/cachyos-mirrorlist
+# WarmShower OS repositories (Zen4 optimized)
+[warmshower-znver4]
+Include = /etc/pacman.d/warmshower-v4-mirrorlist
+[warmshower-core-znver4]
+Include = /etc/pacman.d/warmshower-v4-mirrorlist
+[warmshower-extra-znver4]
+Include = /etc/pacman.d/warmshower-v4-mirrorlist
+[warmshower]
+Include = /etc/pacman.d/warmshower-mirrorlist
 ```
 
 **Finalize Installation:**
@@ -297,7 +297,7 @@ Include = /etc/pacman.d/cachyos-mirrorlist
 sudo pacman -Syu
 ```
 
-🎉 **Congratulations!** Your system is now optimized with CachyOS packages.
+🎉 **Congratulations!** Your system is now optimized with WarmShower OS packages.
 
 ### Debug Packages
 
@@ -309,29 +309,29 @@ sudo mkdir -p /etc/debuginfod
 echo "https://debuginfod.cachyos.org" | sudo tee /etc/debuginfod/cachyos.urls
 ```
 
-### Uninstalling CachyOS Repositories
+### Uninstalling WarmShower OS Repositories
 
-For complete removal instructions, see our [Uninstallation Guide](https://wiki.cachyos.org/features/optimized_repos/#uninstalling-cachyos-repositories).
+For complete removal instructions, see our [upstream Uninstallation Guide](https://wiki.cachyos.org/features/optimized_repos/).
 
 ## SCX Schedulers
 
-CachyOS supports the new sched-ext (SCX) framework for userspace schedulers. For setup and configuration, see our [sched-ext Tutorial](https://wiki.cachyos.org/configuration/sched-ext/).
+WarmShower OS supports the new sched-ext (SCX) framework for userspace schedulers. For setup and configuration, see our [sched-ext Tutorial - upstream](https://wiki.cachyos.org/configuration/sched-ext/).
 
 > [!WARNING]
-> SCX schedulers are **not compatible** with the `linux-cachyos-bmq` kernel variant.
+> SCX schedulers are **not compatible** with the `linux-warmshower-bmq` kernel variant.
 
 ## Other Distributions
 
-CachyOS kernels are available for other Linux distributions through community efforts:
+WarmShower OS kernels are available for other Linux distributions through community efforts:
 
 ### Gentoo Linux
 
 Community-maintained ebuilds for dynamic kernel building:
 
 ```bash
-# Add the CachyOS kernels overlay
+# Add the WarmShower OS kernels overlay
 eselect repository add CachyOS-kernels git https://github.com/Szowisz/CachyOS-kernels
-emaint sync -r CachyOS-kernels
+emaint sync -r WarmShower-kernels
 ```
 
 **Repository:** [Szowisz/CachyOS-kernels](https://github.com/Szowisz/CachyOS-kernels)
@@ -340,10 +340,10 @@ emaint sync -r CachyOS-kernels
 
 COPR repository with multiple kernel variants:
 
-- `linux-cachyos-bore`
-- `linux-cachyos-rt-bore` 
-- `linux-cachyos-bore-lto`
-- `linux-cachyos-lts`
+- `linux-warmshower-bore`
+- `linux-warmshower-rt-bore` 
+- `linux-warmshower-bore-lto`
+- `linux-warmshower-lts`
 
 **Maintainer:** [bieszczaders](https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/)  
 **Installation:** Visit the [COPR page](https://copr.fedorainfracloud.org/coprs/bieszczaders/kernel-cachyos/) for setup instructions
@@ -358,16 +358,16 @@ Precompiled kernels available through the xddxdd/nix-cachyos-kernel repository:
 ## Support & Community
 
 ### Get Help
-- **Discord:** [CachyOS Community](https://discord.gg/cachyos-862292009423470592)
-- **Forum:** [discuss.cachyos.org](https://discuss.cachyos.org)
-- **Telegram:** [CachyOS Group](https://t.me/+zCzPX4cAFjk1MTYy)
+- **Discord:** [WarmShower OS Community](https://warmshower.example.org/community)
+- **Forum:** [warmshower.example.org/forum](https://warmshower.example.org/forum)
+- **Telegram:** [WarmShower OS](https://warmshower.example.org)
 
 ### Support Development
 
 Help us maintain repositories and build infrastructure:
 
 - **PayPal:** [paypal.me/pttrr](https://paypal.me/pttrr)
-- **Patreon:** [patreon.com/CachyOS](https://www.patreon.com/CachyOS)
+- **Patreon:** [warmshower.example.org/support](https://warmshower.example.org/support)
 - **BTC:** `bc1qmwglfchlc335du6pcu6w64cexu7cck0mzhyw42`
 - **ETH:** `0xc2dc77327F78A7B85Db3941Eb49e74F41E961649`
 - **LTC:** `LgGTwcEBcXqMgNT6XyyNWABMb7dZVtVg9w`
@@ -379,4 +379,4 @@ Special thanks to our key contributors:
 - **[firelzrd](https://github.com/firelzrd/bore-scheduler)** - BORE Scheduler developer
 - **[Arch Linux](https://archlinux.org)** - Foundation distribution
 - **[Linux Kernel Community](https://github.com/torvalds/linux)** - Upstream kernel development
-- **All CachyOS contributors and community members**
+- **All upstream contributors and community members** (see https://github.com/CachyOS for original developers)
