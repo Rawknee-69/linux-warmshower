@@ -1,0 +1,7 @@
+# WarmShower OS — CODEOWNERS
+# All kernel PKGBUILD changes require review from the maintainers team.
+
+* @Warm-shower/maintainers
+
+# CI workflows — require maintainer review
+.github/ @Warm-shower/maintainers
